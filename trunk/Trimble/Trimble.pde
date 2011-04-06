@@ -41,7 +41,7 @@ byte gps_input[] = {0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xC0,0x4C,0x49,0x66,0x3C,
 
 void TSIP (SoftwareSerial port, String id, String packet=0)
 {
-  byte buf[64];  //not sure what the right size for this is but this seems safe
+  byte buf[64];   //not sure what the right size for this is but this seems safe
   id.getBytes(buf,64);
   port.write(0x10);
   //port.write(buf,64);
