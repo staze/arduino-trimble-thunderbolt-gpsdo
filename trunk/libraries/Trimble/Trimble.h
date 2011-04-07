@@ -58,10 +58,18 @@
 #define SINGLE float    //?
 #define DOUBLE double         //?
 
+#define MAX_DATA 1024
+
 #define DLE 0x10
 #define ETX 0x03
 #define TRUE 1
 #define FALSE 0
+//state values (should probably be an enum)
+#define START = 1
+#define FRAMING_DLE = 2
+#define DATA = 4
+#define DATA_DLE = 8
+
 
 class Trimble
 {
@@ -73,9 +81,10 @@ class Trimble
 
     private:
         
-	byte 	m_read_buffer[2048];
+	byte 	m_read_buffer[MAX_DATA];
 	int	m_num_chars;
 	bool	m_dle_seen;
+	int	m_state;
 	
         //8F-AB Packet Elements
         struct _8FAB {
