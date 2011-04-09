@@ -18,8 +18,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef Trimble_h
-#define Trimble_h
+#ifndef _Trimble_h
+#define _Trimble_h
 
 #include "WProgram.h"
 
@@ -65,17 +65,13 @@
 #define TRUE 1
 #define FALSE 0
 //state values (should probably be an enum)
-#define START = 1
-#define FRAMING_DLE = 2
-#define DATA = 4
-#define DATA_DLE = 8
 
 
 class Trimble
 {
     public:
         Trimble();
-        bool encode(byte c);
+        bool encode(byte input);
         void parsePacket();
 	Trimble &operator << (char c) {encode(c); return *this;}
 
@@ -83,8 +79,9 @@ class Trimble
         
 	byte 	m_read_buffer[MAX_DATA];
 	int	m_num_chars;
-	bool	m_dle_seen;
-	int	m_state;
+	
+	enum	t_state {START, FRAMING_DLE, DATA, DATA_DLE};
+	t_state	m_state;
 	
         //8F-AB Packet Elements
         struct _8FAB {
