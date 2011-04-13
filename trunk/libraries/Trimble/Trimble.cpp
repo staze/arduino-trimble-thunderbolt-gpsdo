@@ -2,47 +2,52 @@
 //
 //
 #include "Trimble.h"
+#include "HardwareSerial.h"
+
+extern HardwareSerial Serial;
 
 Trimble::Trimble()
 {
    m_num_chars = 0;
 	m_state = START;
+	Serial.begin(115200);
+	Serial.println("Hello from Trimble ctor()");
 }
  
-bool Trimble::encode(byte input)
+bool Trimble::encode(byte c)
 {
   switch (m_state)
   {
     case START:
-      if (input == DLE)
+      if (c == DLE)
         m_state = FRAMING_DLE;
       break;
     case FRAMING_DLE:
       //mis-framed
-      if (input == DLE || input == ETX)
+      if (c == DLE || c == ETX)
         m_state = START;
       else
       {
         m_state = DATA;
         m_num_chars = 0;
-        m_read_buffer[m_num_chars++] = byte(input);
+        m_read_buffer[m_num_chars++] = c;
       }
       break;
     case DATA:
       //found data DLE
-      if (input == DLE)
+      if (c == DLE)
         m_state = DATA_DLE;
       //add byte to packet
       else
-        m_read_buffer[m_num_chars++] = input;
+        m_read_buffer[m_num_chars++] = c;
       break;
     case DATA_DLE:
-      if (input == DLE)
+      if (c == DLE)
       {
-        m_read_buffer[m_num_chars++] = input;
+        m_read_buffer[m_num_chars++] = c;
         m_state = DATA;
       }
-      else if (input == ETX)
+      else if (c == ETX)
       {
         m_state = START;
         parsePacket();   //Whoohoo the moment we've been waitin for
