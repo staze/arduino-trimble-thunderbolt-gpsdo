@@ -1,0 +1,30 @@
+#######################################
+# Syntax Coloring Map for Tsip
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Tsip    KEYWORD1
+
+_report_packet  KEYWORD1
+_command_packet KEYWORD1
+_sw_version KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+encode  KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+_GPS_VERSION    LITERAL1
+_GPS_MPH_PER_KNOT   LITERAL1
+_GPS_MPS_PER_KNOT   LITERAL1
+_GPS_KMPH_PER_KNOT  LITERAL1
+_GPS_MILES_PER_METER    LITERAL1
+_GSP_KM_PER_METER   LITERAL1
+
