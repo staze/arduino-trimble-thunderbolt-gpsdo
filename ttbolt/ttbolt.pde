@@ -8,7 +8,7 @@
 * initiate a cold or warm reset as well as self
 * servey.
 *
-* Copyright (c) 2011 N7MB Brett Howard
+* Copyright (c) 2011 N7MG Brett Howard
 * Copyright (c) 2011 Andrew Stern (N7UL)
 *
 * GOAL:
