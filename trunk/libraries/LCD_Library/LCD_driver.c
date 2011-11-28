@@ -6,6 +6,7 @@
 //************************************************************************
 //*	Edit History
 //*		<MLS>	= Mark Sproul msproul -at- jove.rutgers.edu
+//*     <AS>    = Andrew Stern, andrew -at- n7ul -dot- com
 //************************************************************************
 //*	Apr  2,	2010	<MLS> I received my Color LCD Shield sku: LCD-09363 from sparkfun
 //*	Apr  2,	2010	<MLS> The code was written for WinAVR, I modified it to compile under Arduino
@@ -13,6 +14,13 @@
 //*	Apr  3,	2010	<MLS> Made LCDSetPixel public
 //*	Apr  3,	2010	<MLS> Working on MEGA, pin defs in nokia_tester.h
 //*	Apr  4,	2010	<MLS> Removed delays from LCDCommand & LCDCommand, increased speed by 75%
+//* Nov 26, 2011    <AS>  Moved font tables to program memory.
+//* Nov 26, 2011    <AS>  Changed origin to (top,left) for consistenty with draw primitives.
+//* Nov 26, 2011    <AS>  Mangled init routine
+//*                       TODO: fix draw primitive's round-off errors
+//*                       TODO: add compile time switch to rotate display
+//*                       TODO: do clean up pass and remove dead code
+//*                       TODO: fix documentation and convert to Doxygen      
 //************************************************************************
 #include "LCD_driver.h"
 #include <string.h>
