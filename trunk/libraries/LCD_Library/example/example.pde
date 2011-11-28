@@ -5,14 +5,17 @@
 //*
 //*Edit History
 //*		<MLS>	= Mark Sproul, msproul -at- jove.rutgers.edu
-//*             <PD>   = Peter Davenport, electrifiedpete -at- gmail.com
+//*     <PD>    = Peter Davenport, electrifiedpete -at- gmail.com
+//*     <AS>    = Andrew Stern, andrew -at- n7ul -dot- com
 //************************************************************************
 //*	Apr  2,	2010	<MLS> I received my Color LCD Shield sku: LCD-09363 from sparkfun.
 //*	Apr  2,	2010	<MLS> The code was written for WinAVR, I modified it to compile under Arduino.
-//*     Aug  7, 2010    <PD> Organized code and removed unneccesary elements.
-//*     Aug 23, 2010    <PD> Added LCDSetLine, LCDSetRect, and LCDPutStr.
-//*     Oct 31, 2010    <PD> Added circle code from Carl Seutter and added contrast code.
+//* Aug  7, 2010    <PD> Organized code and removed unneccesary elements.
+//* Aug 23, 2010    <PD> Added LCDSetLine, LCDSetRect, and LCDPutStr.
+//* Oct 31, 2010    <PD> Added circle code from Carl Seutter and added contrast code.
+//* Nov 26, 2011    <AS> Changed setup screen to show mulitple font sizes.
 //************************************************************************
+
 //    External Component Libs
 #include "LCD_driver.h"
 //#include "nokia_tester.h"
