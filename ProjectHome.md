@@ -1,0 +1,1 @@
+I'll work on explaining this later.  For now this is a place for a couple of us to share things.  Once we're ready for help we'll 'splain. ;)  Feel free to take a look around our code is an open book!
